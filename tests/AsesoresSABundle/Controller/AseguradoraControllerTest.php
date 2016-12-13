@@ -25,7 +25,23 @@ class AseguradoraControllerTest extends KernelTestCase
             ->getManager();
     }
     
-    public function testListarAseguradora() {
+//    public function testListarAseguradora() {
+//        
+//        $aseg = $this->em
+//                ->getRepository('AsesoresSABundle:Aseguradora')
+//                ->findAll()
+//                ;
+//        
+//        $ems=$this->get('doctrine')->getManager();
+//	$aseguradora=$ems->getRepository('AsesoresSABundle:Aseguradora')->findAll();
+//        
+//        $this->assertEquals(
+//            $aseg, 
+//            $aseguradora
+//        );
+//    }
+    
+    public function testNuevaAseguradora() {
         
         $aseg = $this->em
                 ->getRepository('AsesoresSABundle:Aseguradora')

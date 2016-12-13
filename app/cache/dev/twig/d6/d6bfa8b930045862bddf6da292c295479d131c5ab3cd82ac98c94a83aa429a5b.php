@@ -23,42 +23,42 @@ class __TwigTemplate_b6be715cf975eb62acfb49d2d19b254f44f1074c072fbf72b5d636a5c6a
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_760742084272df3258ee95d3f1da62e2da551b41c1a16c0b973046dcc53db500 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_760742084272df3258ee95d3f1da62e2da551b41c1a16c0b973046dcc53db500->enter($__internal_760742084272df3258ee95d3f1da62e2da551b41c1a16c0b973046dcc53db500_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AsesoresSABundle:Default:listarTransaccion.html.twig"));
+        $__internal_31f9f82aa5e168353193bece23d56062a93bb139861f01e70b310f99d8670745 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_31f9f82aa5e168353193bece23d56062a93bb139861f01e70b310f99d8670745->enter($__internal_31f9f82aa5e168353193bece23d56062a93bb139861f01e70b310f99d8670745_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AsesoresSABundle:Default:listarTransaccion.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_760742084272df3258ee95d3f1da62e2da551b41c1a16c0b973046dcc53db500->leave($__internal_760742084272df3258ee95d3f1da62e2da551b41c1a16c0b973046dcc53db500_prof);
+        $__internal_31f9f82aa5e168353193bece23d56062a93bb139861f01e70b310f99d8670745->leave($__internal_31f9f82aa5e168353193bece23d56062a93bb139861f01e70b310f99d8670745_prof);
 
     }
 
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        $__internal_f75000a38630fa4a7ff785166d3d57d0683d81af1640aded7addf23954849c03 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_f75000a38630fa4a7ff785166d3d57d0683d81af1640aded7addf23954849c03->enter($__internal_f75000a38630fa4a7ff785166d3d57d0683d81af1640aded7addf23954849c03_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_6ce72f5e5ef7edb10109fd5b12a1d9b971a9bced8539354f6fa8c9b6172448e1 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_6ce72f5e5ef7edb10109fd5b12a1d9b971a9bced8539354f6fa8c9b6172448e1->enter($__internal_6ce72f5e5ef7edb10109fd5b12a1d9b971a9bced8539354f6fa8c9b6172448e1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "Lista de Transacciones";
         
-        $__internal_f75000a38630fa4a7ff785166d3d57d0683d81af1640aded7addf23954849c03->leave($__internal_f75000a38630fa4a7ff785166d3d57d0683d81af1640aded7addf23954849c03_prof);
+        $__internal_6ce72f5e5ef7edb10109fd5b12a1d9b971a9bced8539354f6fa8c9b6172448e1->leave($__internal_6ce72f5e5ef7edb10109fd5b12a1d9b971a9bced8539354f6fa8c9b6172448e1_prof);
 
     }
 
     // line 5
     public function block_body($context, array $blocks = array())
     {
-        $__internal_da385cae557d8fc26ec8fe0a99489c73aa5d254219f0c44508f2b235e8a088b2 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_da385cae557d8fc26ec8fe0a99489c73aa5d254219f0c44508f2b235e8a088b2->enter($__internal_da385cae557d8fc26ec8fe0a99489c73aa5d254219f0c44508f2b235e8a088b2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_73f9d766a4c9a470e360a4a6d657890103d6187d8eff42eb9e10f75859b22b8f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_73f9d766a4c9a470e360a4a6d657890103d6187d8eff42eb9e10f75859b22b8f->enter($__internal_73f9d766a4c9a470e360a4a6d657890103d6187d8eff42eb9e10f75859b22b8f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
         echo "    <div class=\"container\">
         <div class=\"row\">
             <div class=\"col-md-12\">
                 <h3 class=\"text-center\">Lista de Transacciones</h3>
-                <a class=\"link-btn\" href=\"";
+                <center><a class=\"btn btn-primary\" role=\"button\" href=\"";
         // line 10
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("pdf");
-        echo "\">PDF</a>
+        echo "\">PDF</a></center>
                 <div id=\"listT\" class=\"table-responsive\" style=\"overflow: auto; text-align: center\">
                         
                 </div>
@@ -67,15 +67,15 @@ class __TwigTemplate_b6be715cf975eb62acfb49d2d19b254f44f1074c072fbf72b5d636a5c6a
     </div>
 ";
         
-        $__internal_da385cae557d8fc26ec8fe0a99489c73aa5d254219f0c44508f2b235e8a088b2->leave($__internal_da385cae557d8fc26ec8fe0a99489c73aa5d254219f0c44508f2b235e8a088b2_prof);
+        $__internal_73f9d766a4c9a470e360a4a6d657890103d6187d8eff42eb9e10f75859b22b8f->leave($__internal_73f9d766a4c9a470e360a4a6d657890103d6187d8eff42eb9e10f75859b22b8f_prof);
 
     }
 
     // line 18
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_4074b28d4fbfc6831c7cca93b29d1c4fc31335a3f8cd233ee59fa52d6080d87e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_4074b28d4fbfc6831c7cca93b29d1c4fc31335a3f8cd233ee59fa52d6080d87e->enter($__internal_4074b28d4fbfc6831c7cca93b29d1c4fc31335a3f8cd233ee59fa52d6080d87e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_952f1964b2fe03bcd5282fbb3c54faa5e5f7a832ef15d0e7df83604f6a6740b0 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_952f1964b2fe03bcd5282fbb3c54faa5e5f7a832ef15d0e7df83604f6a6740b0->enter($__internal_952f1964b2fe03bcd5282fbb3c54faa5e5f7a832ef15d0e7df83604f6a6740b0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 19
         echo "    ";
@@ -92,7 +92,7 @@ class __TwigTemplate_b6be715cf975eb62acfb49d2d19b254f44f1074c072fbf72b5d636a5c6a
         echo "\"></script>
 ";
         
-        $__internal_4074b28d4fbfc6831c7cca93b29d1c4fc31335a3f8cd233ee59fa52d6080d87e->leave($__internal_4074b28d4fbfc6831c7cca93b29d1c4fc31335a3f8cd233ee59fa52d6080d87e_prof);
+        $__internal_952f1964b2fe03bcd5282fbb3c54faa5e5f7a832ef15d0e7df83604f6a6740b0->leave($__internal_952f1964b2fe03bcd5282fbb3c54faa5e5f7a832ef15d0e7df83604f6a6740b0_prof);
 
     }
 
@@ -130,7 +130,7 @@ class __TwigTemplate_b6be715cf975eb62acfb49d2d19b254f44f1074c072fbf72b5d636a5c6a
         <div class=\"row\">
             <div class=\"col-md-12\">
                 <h3 class=\"text-center\">Lista de Transacciones</h3>
-                <a class=\"link-btn\" href=\"{{ path('pdf') }}\">PDF</a>
+                <center><a class=\"btn btn-primary\" role=\"button\" href=\"{{ path('pdf') }}\">PDF</a></center>
                 <div id=\"listT\" class=\"table-responsive\" style=\"overflow: auto; text-align: center\">
                         
                 </div>

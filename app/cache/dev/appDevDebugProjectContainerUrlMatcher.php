@@ -152,11 +152,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         // inicioSesion
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'inicioSesion');
-            }
-
+        if ($pathinfo === '/login') {
             return array (  '_controller' => 'AsesoresSABundle\\Controller\\InicioSesionController::indexAction',  '_route' => 'inicioSesion',);
         }
 
@@ -178,17 +174,18 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        if (0 === strpos($pathinfo, '/poliza')) {
-            // nuevaPoliza
-            if ($pathinfo === '/poliza/nueva') {
-                return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::nuevaPolizaAction',  '_route' => 'nuevaPoliza',);
+        // nuevaPoliza
+        if ($pathinfo === '/poliza/nueva') {
+            return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::nuevaPolizaAction',  '_route' => 'nuevaPoliza',);
+        }
+
+        // pdf
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'pdf');
             }
 
-            // pdf
-            if ($pathinfo === '/poliza/pdf') {
-                return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::pdfAction',  '_route' => 'pdf',);
-            }
-
+            return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::pdfAction',  '_route' => 'pdf',);
         }
 
         if (0 === strpos($pathinfo, '/ramo')) {

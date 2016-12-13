@@ -35,7 +35,7 @@ $(document).ready(function() {
   
     $("#movimiento_Guardar").on('click', function(){
         if( $( "form[name='movimiento']" ).valid() ) {
-            event.preventDefault();
+            //event.preventDefault();
         }
     });
 });

@@ -12,11 +12,11 @@ use AsesoresSABundle\Entity\Usuarios;
 class InicioSesionController extends Controller
 { 
     /**
-     * @Route("/", name="inicioSesion")
+     * @Route("/login", name="inicioSesion")
      */
     public function indexAction(Request $request)
     {
-            $usuarios = new Usuarios();
+        $usuarios = new Usuarios();
         $form = $this->createForm(new InicioSesionType(), $usuarios);
         $form->handleRequest($request);
         
@@ -25,11 +25,14 @@ class InicioSesionController extends Controller
             $nombre=$usuarios->getNombreusuario();
             $contrasena=$usuarios->getContrasenausuario();
             
+            $password = $this->get('security.password_encoder')
+                ->encodePassword($contrasena, $usuarios->getContrasenausuario());
+            
             $em=$this->getDoctrine()->getManager();
 	    $userfound=$em->getRepository('AsesoresSABundle:Usuarios')->findOneByNombreusuario($nombre);
             
             if($userfound){
-                if($userfound->getContrasenausuario() == $contrasena){
+                if($userfound->getContrasenausuario() == $password){
                     //return new Response("Usuario y Contraseña encontrados");
                     return $this->redirectToRoute("Bienvenida");
                 }
@@ -39,4 +42,6 @@ class InicioSesionController extends Controller
         return $this->render('AsesoresSABundle:InicioSesion:index.html.twig', array("form"=>$form->createView()));
    
      }
+    
+
 }
