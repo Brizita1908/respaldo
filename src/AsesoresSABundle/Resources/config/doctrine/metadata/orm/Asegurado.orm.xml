@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Asegurado" table="asegurado">
+    <indexes>
+      <index name="idAnexo" columns="idAnexo"/>
+    </indexes>
+    <id name="idasegurado" type="integer" column="idAsegurado">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="icasegurado" type="string" column="icASegurado" length="10" nullable="true"/>
+    <field name="nombresasegurado" type="string" column="nombresAsegurado" length="100" nullable="true"/>
+    <field name="apellidosasegurado" type="string" column="apellidosASegurado" length="100" nullable="true"/>
+    <field name="valorasegurado" type="decimal" column="valorAsegurado" precision="15" scale="2" nullable="true"/>
+    <many-to-one field="idanexo" target-entity="Anexo">
+      <join-columns>
+        <join-column name="idAnexo" referenced-column-name="idAnexo"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

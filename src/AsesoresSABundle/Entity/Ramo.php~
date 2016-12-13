@@ -1,0 +1,53 @@
+<?php
+
+namespace AsesoresSABundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Ramo
+ *
+ * @ORM\Table(name="ramo")
+ * @ORM\Entity
+ */
+class Ramo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idRamo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idramo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="siglaRamo", type="string", length=5, nullable=true)
+     */
+    private $siglaramo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombreRamo", type="string", length=50, nullable=true)
+     */
+    private $nombreramo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tipoRamo", type="string", length=1, nullable=true)
+     */
+    private $tiporamo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="estadoRamo", type="string", length=1, nullable=true)
+     */
+    private $estadoramo;
+
+
+}

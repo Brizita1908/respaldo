@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Pago" table="pago">
+    <id name="idpago" type="integer" column="idPago">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="tasapago" type="decimal" column="tasaPago" precision="10" scale="2" nullable="true"/>
+    <field name="primapago" type="decimal" column="primaPago" precision="15" scale="2" nullable="true"/>
+    <field name="porcentajecomisionpago" type="decimal" column="porcentajeComisionPago" precision="10" scale="2" nullable="true"/>
+    <field name="metodopago" type="string" column="metodoPago" length="10" nullable="true"/>
+    <field name="numerocuotas" type="integer" column="numeroCuotas" nullable="true"/>
+    <field name="comisionpago" type="decimal" column="comisionPago" precision="15" scale="2" nullable="true"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,83 @@
+<?php
+
+namespace AsesoresSABundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Anexo
+ *
+ * @ORM\Table(name="anexo", uniqueConstraints={@ORM\UniqueConstraint(name="numeroAnexo", columns={"numeroAnexo"})}, indexes={@ORM\Index(name="idPago", columns={"idPago"}), @ORM\Index(name="idRamo", columns={"idRamo"}), @ORM\Index(name="idPoliza", columns={"idPoliza"})})
+ * @ORM\Entity
+ */
+class Anexo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idAnexo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idanexo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="numeroAnexo", type="string", length=10, nullable=false)
+     */
+    private $numeroanexo;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="inicioVigenciaAnexo", type="datetime", nullable=true)
+     */
+    private $iniciovigenciaanexo;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="finVigenciaAnexo", type="datetime", nullable=true)
+     */
+    private $finvigenciaanexo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="valorTotalAseguradoAnexo", type="decimal", precision=15, scale=2, nullable=true)
+     */
+    private $valortotalaseguradoanexo;
+
+    /**
+     * @var \Pago
+     *
+     * @ORM\ManyToOne(targetEntity="Pago")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idPago", referencedColumnName="idPago")
+     * })
+     */
+    private $idpago;
+
+    /**
+     * @var \Ramo
+     *
+     * @ORM\ManyToOne(targetEntity="Ramo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idRamo", referencedColumnName="idRamo")
+     * })
+     */
+    private $idramo;
+
+    /**
+     * @var \Poliza
+     *
+     * @ORM\ManyToOne(targetEntity="Poliza")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idPoliza", referencedColumnName="idPoliza")
+     * })
+     */
+    private $idpoliza;
+
+
+}

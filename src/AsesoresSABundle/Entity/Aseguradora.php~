@@ -1,0 +1,46 @@
+<?php
+
+namespace AsesoresSABundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Aseguradora
+ *
+ * @ORM\Table(name="aseguradora", uniqueConstraints={@ORM\UniqueConstraint(name="siglaAseguradora", columns={"siglaAseguradora"})})
+ * @ORM\Entity
+ */
+class Aseguradora
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idAseguradora", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idaseguradora;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="siglaAseguradora", type="string", length=5, nullable=false)
+     */
+    private $siglaaseguradora;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombreAseguradora", type="string", length=50, nullable=true)
+     */
+    private $nombreaseguradora;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="estadoAseguradora", type="string", length=1, nullable=true)
+     */
+    private $estadoaseguradora;
+
+
+}

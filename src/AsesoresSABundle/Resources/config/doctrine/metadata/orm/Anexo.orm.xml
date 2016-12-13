@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Anexo" table="anexo">
+    <indexes>
+      <index name="idPago" columns="idPago"/>
+      <index name="idRamo" columns="idRamo"/>
+      <index name="idPoliza" columns="idPoliza"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="numeroAnexo" columns="numeroAnexo"/>
+    </unique-constraints>
+    <id name="idanexo" type="integer" column="idAnexo">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="numeroanexo" type="string" column="numeroAnexo" length="10" nullable="false"/>
+    <field name="iniciovigenciaanexo" type="datetime" column="inicioVigenciaAnexo" nullable="true"/>
+    <field name="finvigenciaanexo" type="datetime" column="finVigenciaAnexo" nullable="true"/>
+    <field name="valortotalaseguradoanexo" type="decimal" column="valorTotalAseguradoAnexo" precision="15" scale="2" nullable="true"/>
+    <many-to-one field="idpago" target-entity="Pago">
+      <join-columns>
+        <join-column name="idPago" referenced-column-name="idPago"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idramo" target-entity="Ramo">
+      <join-columns>
+        <join-column name="idRamo" referenced-column-name="idRamo"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idpoliza" target-entity="Poliza">
+      <join-columns>
+        <join-column name="idPoliza" referenced-column-name="idPoliza"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

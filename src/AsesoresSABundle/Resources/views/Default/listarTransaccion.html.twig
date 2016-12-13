@@ -1,0 +1,23 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}Lista de Transacciones{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center">Lista de Transacciones</h3>
+                <a class="link-btn" href="{{ path('pdf') }}">PDF</a>
+                <div id="listT" class="table-responsive" style="overflow: auto; text-align: center">
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="{{ asset('bundles/asesoressa/js/transaccion/listarTransaccion.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/asesoressa/js/dataTables.min.js') }}"></script>
+{% endblock %}

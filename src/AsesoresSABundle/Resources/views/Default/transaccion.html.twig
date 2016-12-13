@@ -1,0 +1,279 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}Registro de Transacción{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3 class="text-center">Registro de Transacción</h3>
+                    {{ form_start(formPoliza) }}
+                    <div class="form_bloque form-group">
+                        <div class="form_error">{{form_errors(formPoliza.numeropoliza)}}</div>
+                        <div class="form_label">{{form_label(formPoliza.numeropoliza, 'Número de Poliza : ', {'label_attr': {'for': 'poliza_numeropoliza'}})}}</div>
+                        <div class="form_input">{{form_widget(formPoliza.numeropoliza, { 'attr': {'class': 'form-control', 'placeholder':'Ingrese un número de poliza para registrar o consultar.'} })}}</div>
+                    </div>
+                    <div class="form_bloque form-group Pvisible">
+                        <div class="form_error">{{form_errors(formPoliza.idcliente)}}</div>
+                        <div class="form_label">{{form_label(formPoliza.idcliente, 'Cliente : ', {'label_attr': {'for': 'Cliente'}})}}</div>
+                        <div class="form_input">{{form_widget(formPoliza.idcliente, { 'attr': {'class': 'form-control'} })}}</div>
+                    </div>
+                    <div class="form_bloque form-group Pvisible">
+                        <div class="form_error">{{form_errors(formPoliza.idaseguradora)}}</div>
+                        <div class="form_label">{{form_label(formPoliza.idaseguradora, 'Aseguradora : ', {'label_attr': {'for': 'Movimiento'}})}}</div>
+                        <div class="form_input">{{form_widget(formPoliza.idaseguradora, { 'attr': {'class': 'form-control', 'placeholder':'Movimiento'} })}}</div>
+                    </div>
+                    {{ form_end(formPoliza)}}
+                    <div class="form-btn Pvisible">
+                        <button class="btn btn-primary btnGuardaPoliza">Registrar Póliza</button>
+                    </div>
+                    <br>
+                    <div class="form_bloque form-group Pvisible table-responsive" id="tabla_anexos">
+                    </div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btn-lg Pvisible btnAnexo" data-toggle="modal" data-target="#ModalAnexo">
+                      Nuevo Anexo
+                    </button>
+                    <!-- Modal Confirmacion Poliza -->
+                    <div class="modal fade" id="modalConfirmacionPoliza" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <center style="color:red"><h4 class="modal-title">Confirmación de Registro de Poliza</h4></center>
+                          </div>
+                          <div class="modal-body" id="contenidoModalConfirmacionPoliza">
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary btnConfirmaGuardaPoliza">Registrar Poliza</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Modal Confirmacion Anexo -->
+                    <div class="modal fade" id="modalConfirmacionAnexo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <center style="color:red"><h4 class="modal-title">Confirmación de Registro de Anexo</h4></center>
+                          </div>
+                          <div class="modal-body" id="contenidoModalConfirmacionAnexo">
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default btnCancelarAnexo" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary btnConfirmaGuardaAnexo">Registrar Anexo</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Modal Anexo -->
+                    <div class="modal fade" id="ModalAnexo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Registro de Nuevo Anexo</h4>
+                          </div>
+                          <div class="modal-body">
+                            {{ form_start(formAnexo)}}
+                            <div class="form_bloque form-group">
+                                <div class="form_error">{{form_errors(formAnexo.numeroanexo)}}</div>
+                                <div class="form_label">{{form_label(formAnexo.numeroanexo, 'Número Anexo', {'label_attr': {'for': 'Vendedor'}})}}</div>
+                                <div class="form_input">{{form_widget(formAnexo.numeroanexo, { 'attr': {'class': 'form-control', 'placeholder':'Numero de Anexo'} })}}</div>
+                            </div>
+                            <div class="form_bloque form-group">
+                                <div class="form_error">{{form_errors(formAnexo.idramo)}}</div>
+                                <div class="form_label">{{form_label(formAnexo.idramo, 'Ramo', {'label_attr': {'for': 'Vendedor'}})}}</div>
+                                <div class="form_input">{{form_widget(formAnexo.idramo, { 'attr': {'class': 'form-control', 'placeholder':'Vendedor'} })}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <div class="form_bloque form-group">
+                                            <div class="form_error">{{form_errors(formAnexo.iniciovigenciaanexo)}}</div>
+                                            <div class="form_label">{{form_label(formAnexo.iniciovigenciaanexo, 'Inicio Vigencia', {'label_attr': {'for': 'Vendedor'}})}}</div>
+                                            <div class="form_input">{{form_widget(formAnexo.iniciovigenciaanexo)}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form_bloque form-group">
+                                            <div class="form_error">{{form_errors(formAnexo.finvigenciaanexo)}}</div>
+                                            <div class="form_label">{{form_label(formAnexo.finvigenciaanexo, 'Fin Vigencia', {'label_attr': {'for': 'Vendedor'}})}}</div>
+                                            <div class="form_input">{{form_widget(formAnexo.finvigenciaanexo)}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <div class="form_bloque form-group">
+                                            <div class="form_error">{{form_errors(formAnexo.valortotalaseguradoanexo)}}</div>
+                                            <div class="form_label">{{form_label(formAnexo.valortotalaseguradoanexo, 'Valor', {'label_attr': {'for': 'Vendedor'}})}}</div>
+                                            <div class="form_input">{{form_widget(formAnexo.valortotalaseguradoanexo, { 'attr': {'class': 'form-control', 'placeholder':'Valor Total'} })}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"></div>
+                                </div>
+                            </div>
+                            {{form_end(formAnexo)}}
+                            <h4>Información de Pago</h4>
+                            {{ form_start(formPago)}}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <div class="form_bloque form-group">
+                                            <div class="form_error">{{form_errors(formPago.tasapago)}}</div>
+                                            <div class="form_label">{{form_label(formPago.tasapago, 'Tasa Pago', {'label_attr': {'for': 'Vendedor'}})}}</div>
+                                            <div class="form_input">{{form_widget(formPago.tasapago, { 'attr': {'class': 'form-control', 'placeholder':'Tasa de Pago'} })}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <div class="form_bloque form-group">
+                                            <div class="form_error">{{form_errors(formPago.metodopago)}}</div>
+                                            <div class="form_label">{{form_label(formPago.metodopago, 'Metodo de Pago', {'label_attr': {'for': 'Vendedor'}})}}</div>
+                                            <div class="form_input">{{form_widget(formPago.metodopago, { 'attr': {'class': 'form-control', 'placeholder':'Metodo de Pago'} })}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form_bloque form-group">
+                                            <div class="form_error">{{form_errors(formPago.numerocuotas)}}</div>
+                                            <div class="form_label">{{form_label(formPago.numerocuotas, 'Numero de Cuotas', {'label_attr': {'for': 'Vendedor'}})}}</div>
+                                            <div class="form_input">{{form_widget(formPago.numerocuotas, { 'attr': {'class': 'form-control', 'placeholder':'Numero de Cuotas'} })}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form_bloque form-group">
+                                <div class="form_error">{{form_errors(formPago.primapago)}}</div>
+                                <div class="form_label">{{form_label(formPago.primapago, 'Prima', {'label_attr': {'for': 'Vendedor'}})}}</div>
+                                <div class="form_input">{{form_widget(formPago.primapago, { 'attr': {'class': 'form-control', 'placeholder':'Prima'} })}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <div class="form_bloque form-group">
+                                            <div class="form_error">{{form_errors(formPago.porcentajecomisionpago)}}</div>
+                                            <div class="form_label">{{form_label(formPago.porcentajecomisionpago, '% Comision', {'label_attr': {'for': 'Vendedor'}})}}</div>
+                                            <div class="form_input">{{form_widget(formPago.porcentajecomisionpago, { 'attr': {'class': 'form-control', 'placeholder':'Porcentaje Comision'} })}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form_bloque form-group">
+                                            <div class="form_error">{{form_errors(formPago.comisionpago)}}</div>
+                                            <div class="form_label">{{form_label(formPago.comisionpago, 'Comision', {'label_attr': {'for': 'Vendedor'}})}}</div>
+                                            <div class="form_input">{{form_widget(formPago.comisionpago, { 'attr': {'class': 'form-control', 'placeholder':'Comision'} })}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{form_end(formPago)}}
+                            
+                          </div>
+                          <div class="modal-footer">
+                            <center><p><b class="notificaAnexo" style="background-color:red;color: white"></b></p></center>
+                            <button type="button" class="btn btn-default btnCerrarAnexo" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary btnGuardarAnexo">Registrar Anexo</button>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <br><br><br>
+                    {{ form_start(form)}}
+                    <center><h4>Ingrese los datos para el anexo seleccionado</h4></center>
+                    <div class="form_bloque form-group">
+                        <div class="form_error">{{form_errors(form.idmovimiento)}}</div>
+                        <div class="form_label">{{form_label(form.idmovimiento, 'Movimiento', {'label_attr': {'for': 'Movimiento'}})}}</div>
+                        <div class="form_input">{{form_widget(form.idmovimiento, { 'attr': {'class': 'form-control', 'placeholder':'Movimiento'} })}}</div>
+                    </div>
+                    <div class="form_bloque form-group">
+                        <div class="form_error">{{form_errors(form.mediosolicitud)}}</div>
+                        <div class="form_label">{{form_label(form.mediosolicitud, 'Medio de Solicitud', {'label_attr': {'for': 'Medio de Solicitud'}})}}</div>
+                        <div class="form_input">{{form_widget(form.mediosolicitud, { 'attr': {'class': 'form-control', 'placeholder':'Medio de Solicitud'} })}}</div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form_bloque form-group">
+                                    <div class="form_error">{{form_errors(form.numerocartasolicitud)}}</div>
+                                    <div class="form_label">{{form_label(form.numerocartasolicitud, 'Numero de carta de solicitud', {'label_attr': {'for': 'Numero de carta de solicitud'}})}}</div>
+                                    <div class="form_input">{{form_widget(form.numerocartasolicitud, { 'attr': {'class': 'form-control', 'placeholder':'Numero de carta de solicitud'} })}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form_bloque form-group">
+                                    <div class="form_error">{{form_errors(form.fechasolicitud)}}</div>
+                                    <div class="form_label">{{form_label(form.fechasolicitud, 'Fecha de Solicitud', {'label_attr': {'for': 'Fecha de Solicitud'}})}}</div>
+                                    <div class="form_input">{{form_widget(form.fechasolicitud)}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form_bloque form-group">
+                                    <div class="form_error">{{form_errors(form.cartafirmadaentrega)}}</div>
+                                    <div class="form_label">{{form_label(form.cartafirmadaentrega, 'Numero Carta Entregada', {'label_attr': {'for': 'Numero Carta Entregada'}})}}</div>
+                                    <div class="form_input">{{form_widget(form.cartafirmadaentrega, { 'attr': {'class': 'form-control', 'placeholder':'Numero Carta Entregada'} })}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form_bloque form-group">
+                                    <div class="form_error">{{form_errors(form.fechaentrega)}}</div>
+                                    <div class="form_label">{{form_label(form.fechaentrega, 'Fecha de Entrega', {'label_attr': {'for': 'Fecha de Entrega'}})}}</div>
+                                    <div class="form_input">{{form_widget(form.fechaentrega)}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form_bloque form-group">
+                        <div class="form_error">{{form_errors(form.estadotransaccion)}}</div>
+                        <div class="form_label">{{form_label(form.estadotransaccion, 'Estado Transaccion', {'label_attr': {'for': 'Estado Transaccion'}})}}</div>
+                        <div class="form_input">{{form_widget(form.estadotransaccion, { 'attr': {'class': 'form-control', 'placeholder':'Estado Transaccion'} })}}</div>
+                    </div>
+                    <div class="form_bloque form-group">
+                        <div class="form_error">{{form_errors(form.idusuario)}}</div>
+                        <div class="form_label">{{form_label(form.idusuario, 'Vendedor', {'label_attr': {'for': 'Vendedor'}})}}</div>
+                        <div class="form_input">{{form_widget(form.idusuario, { 'attr': {'class': 'form-control', 'placeholder':'Vendedor'} })}}</div>
+                    </div>
+                    <button type="button" class="btn btn-primary btnGuardarTransaccion">Registrar Transacción</button>
+                    {{form_end(form)}}
+                    <!-- Modal Confirmacion Transaccion -->
+                    <div class="modal fade" id="modalConfirmacionTransaccion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <center style="color:red"><h4 class="modal-title">Confirmación de Registro de Transaccion</h4></center>
+                          </div>
+                          <div class="modal-body" id="contenidoModalConfirmacionTransaccion">
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default btnCancelarTransaccion" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary btnConfirmaGuardaTransaccion">Registrar Transaccion</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <center><h4><span class="label label-default notificaTransaccion">*Ingrese en el campo de texto el número de poliza a registrar o buscar.</span></h4></center>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/asesoressa/js/transaccion/regTransaccion.js') }}"></script>   
+{% endblock %}

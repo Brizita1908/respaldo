@@ -1,0 +1,4 @@
+asesores_sa:
+    resource: "@AsesoresSABundle/Controller/"
+    type:     annotation
+    prefix:   /

@@ -1,0 +1,36 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}Movimientos{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-4 col-md-offset-4">
+                    <h3 class="text-center">Movimientos</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>Sigla</td>
+                                <td>Estado</td>
+                                <td>Nombre</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for mov in movimientos %}
+                                <tr>
+                                    <td>{{ mov.siglamovimiento }}</td>
+                                    <td>{{ mov.nombremovimiento }}</td>
+                                    <td>{{ mov.estadomovimiento }}</td>
+                                    <td><a class="link-btn" href="{{ path('editarMovimiento', {'siglamovimiento': mov.siglamovimiento}) }}">Modificar</a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                        
+                    <a href="{{ path('nuevoMovimiento') }}" class="btn btn-primary" role="button">Nuevo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
