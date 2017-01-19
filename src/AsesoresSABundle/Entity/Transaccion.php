@@ -43,9 +43,9 @@ class Transaccion
     private $fechasolicitud;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="cartaFirmadaEntrega", type="datetime", nullable=true)
+     * @ORM\Column(name="cartaFirmadaEntrega", type="string", length=100, nullable=true)
      */
     private $cartafirmadaentrega;
 
@@ -167,7 +167,7 @@ class Transaccion
     /**
      * Set cartafirmadaentrega
      *
-     * @param \DateTime $cartafirmadaentrega
+     * @param string $cartafirmadaentrega
      * @return Transaccion
      */
     public function setCartafirmadaentrega($cartafirmadaentrega)
@@ -180,7 +180,7 @@ class Transaccion
     /**
      * Get cartafirmadaentrega
      *
-     * @return \DateTime 
+     * @return string 
      */
     public function getCartafirmadaentrega()
     {

@@ -69,4 +69,6 @@
     <script type="text/javascript" src="{{ asset('bundles/asesoressa/js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/asesoressa/js/jquery.validate.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/asesoressa/js/additional-methods.js') }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
 {% endblock %}

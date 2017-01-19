@@ -174,9 +174,90 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // nuevaPoliza
-        if ($pathinfo === '/poliza/nueva') {
-            return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::nuevaPolizaAction',  '_route' => 'nuevaPoliza',);
+        if (0 === strpos($pathinfo, '/poliza')) {
+            // nuevaPoliza
+            if ($pathinfo === '/poliza/nueva') {
+                return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::nuevaPolizaAction',  '_route' => 'nuevaPoliza',);
+            }
+
+            // registraPoliza
+            if ($pathinfo === '/poliza/registraPoliza') {
+                return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::registraPoliza',  '_route' => 'registraPoliza',);
+            }
+
+            // consultaPoliza
+            if ($pathinfo === '/poliza/consultaPolizaById') {
+                return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::consultaPolizaById',  '_route' => 'consultaPoliza',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/anexo/consulta')) {
+            // consultaAnexos
+            if ($pathinfo === '/anexo/consultaAnexosByIdPoliza') {
+                return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::consultaAnexosByIdPoliza',  '_route' => 'consultaAnexos',);
+            }
+
+            // consultaTransacciones
+            if ($pathinfo === '/anexo/consultaTransaccionesByIdAnexo') {
+                return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::consultaTransaccionesByIdAnexo',  '_route' => 'consultaTransacciones',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/poliza/consulta')) {
+            // consultaCliente
+            if ($pathinfo === '/poliza/consultaClienteById') {
+                return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::consultaClienteById',  '_route' => 'consultaCliente',);
+            }
+
+            // consultaMovInTransaccion
+            if ($pathinfo === '/poliza/consultaMovInTransaccion') {
+                return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::consultaMovInTransaccion',  '_route' => 'consultaMovInTransaccion',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/anexo')) {
+            if (0 === strpos($pathinfo, '/anexo/consultaA')) {
+                // consultaAseguradora
+                if ($pathinfo === '/anexo/consultaAseguradoraById') {
+                    return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::consultaAseguradoraById',  '_route' => 'consultaAseguradora',);
+                }
+
+                if (0 === strpos($pathinfo, '/anexo/consultaAnexoById')) {
+                    // consultaAnexoById
+                    if ($pathinfo === '/anexo/consultaAnexoById') {
+                        return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::consultaAnexoById',  '_route' => 'consultaAnexoById',);
+                    }
+
+                    // consultaAnexoByIdAnexo
+                    if ($pathinfo === '/anexo/consultaAnexoByIdAnexo') {
+                        return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::consultaAnexoByIdAnexo',  '_route' => 'consultaAnexoByIdAnexo',);
+                    }
+
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/anexo/registra')) {
+                // registraPago
+                if ($pathinfo === '/anexo/registraPago') {
+                    return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::registraPago',  '_route' => 'registraPago',);
+                }
+
+                // registraAnexo
+                if ($pathinfo === '/anexo/registraAnexo') {
+                    return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::registraAnexo',  '_route' => 'registraAnexo',);
+                }
+
+                // registraTransaccion
+                if ($pathinfo === '/anexo/registraTransaccion') {
+                    return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::registraTransaccion',  '_route' => 'registraTransaccion',);
+                }
+
+            }
+
         }
 
         // pdf
@@ -227,6 +308,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'editarUsuario')), array (  '_controller' => 'AsesoresSABundle\\Controller\\UsuarioController::editarUsuarioAction',));
             }
 
+        }
+
+        // fos_js_routing_js
+        if (0 === strpos($pathinfo, '/js/routing') && preg_match('#^/js/routing(?:\\.(?P<_format>js|json))?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'fos_js_routing_js')), array (  '_controller' => 'fos_js_routing.controller:indexAction',  '_format' => 'js',));
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

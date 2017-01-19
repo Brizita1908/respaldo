@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Repositorios/sym/src/AsesoresSABundle/Resources/views/Default/transaccion.html.twig</file>
-            <file>file:/C:/xampp/htdocs/Repositorios/sym/php/listarTransaccion.php</file>
-            <file>file:/C:/xampp/htdocs/Repositorios/sym/php/consultaAnexo.php</file>
+            <file>file:/C:/xampp/htdocs/respaldo/src/AsesoresSABundle/Resources/Public/js/transaccion/regTransaccion.js</file>
+            <file>file:/C:/xampp/htdocs/respaldo/src/AsesoresSABundle/Controller/PolizaController.php</file>
+            <file>file:/C:/xampp/htdocs/respaldo/src/AsesoresSABundle/Resources/Public/js/validaciones/transaccion.js</file>
+            <file>file:/C:/xampp/htdocs/respaldo/src/AsesoresSABundle/Resources/views/Default/transaccion.html.twig</file>
+            <file>file:/C:/xampp/htdocs/respaldo/src/AsesoresSABundle/Resources/Public/js/validaciones/anexo.js</file>
+            <file>file:/C:/xampp/htdocs/respaldo/src/AsesoresSABundle/Resources/Public/js/validaciones/aseguradora.js</file>
+            <file>file:/C:/xampp/htdocs/respaldo/src/AsesoresSABundle/Entity/Movimiento.php</file>
         </group>
     </open-files>
 </project-private>

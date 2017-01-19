@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Anexo
  *
- * @ORM\Table(name="anexo", uniqueConstraints={@ORM\UniqueConstraint(name="numeroAnexo", columns={"numeroAnexo"})}, indexes={@ORM\Index(name="idPago", columns={"idPago"}), @ORM\Index(name="idRamo", columns={"idRamo"}), @ORM\Index(name="idPoliza", columns={"idPoliza"})})
+ * @ORM\Table(name="anexo", indexes={@ORM\Index(name="idPago", columns={"idPago"}), @ORM\Index(name="idRamo", columns={"idRamo"}), @ORM\Index(name="idPoliza", columns={"idPoliza"})})
  * @ORM\Entity
  */
 class Anexo

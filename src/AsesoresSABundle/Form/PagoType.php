@@ -18,7 +18,7 @@ class PagoType extends AbstractType
             ->add('tasapago')
             ->add('primapago')
             ->add('porcentajecomisionpago')
-            ->add('metodopago', 'choice', array('required'=>true, 'choices' =>array(''=>'-- Seleccione --','Efectivo'=>'Efectivo', 'Credito'=>'Credito')))
+            ->add('metodopago', 'choice', array('required'=>true, 'choices' =>array(''=>'-- Seleccione --','Contado'=>'Contado', 'Credito'=>'Credito','Tarjeta de Credito'=>'Tarjeta de Credito', 'Transferencia Bancaria'=>'Transferencia Bancaria')))
             ->add('numerocuotas')
             ->add('comisionpago')
         ;
