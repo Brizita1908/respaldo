@@ -200,6 +200,7 @@ class PolizaController extends Controller
 	return new Response($serializer->serialize($anexo, 'json'), 200, array('Content-Type'=>'application/json'));
     }
     
+    
     /**
      * @Route("/anexo/registraPago", options={"expose"=true} , name="registraPago")
      */
@@ -323,32 +324,6 @@ class PolizaController extends Controller
 	return new Response($serializer->serialize($transaccionanexo, 'json'), 200, array('Content-Type'=>'application/json'));
     }
     
-    /**
-     * @Route("/", name="pdf")
-     */
-    public function pdfAction(Request $request) {
-        
-        $html = $this->renderView('AsesoresSABundle:Default:listarTransaccion.html.twig');
-
-        return new Response(
-            $this->get('knp_snappy.pdf')->getOutputFromHtml($html,
-                    array('lowquality' => false,
-                    'print-media-type' => true,
-                    'encoding' => 'utf-8',
-                    'page-size' => 'A4',
-                    'outline-depth' => 8,
-                    'orientation' => 'Portrait',
-                    'title'=> 'Personal con Certificado',
-                    'user-style-sheet'=> 'css/estilos.css',
-                    'header-right'=>'Pag. [page] de [toPage]',
-                    'header-font-size'=>7,
-                    )),
-            200,
-            array(
-                'Content-Type'          => 'application/pdf',
-                'Content-Disposition'   => 'attachment; filename="file.pdf"'
-            )
-        );
-    }
+    
     
 }

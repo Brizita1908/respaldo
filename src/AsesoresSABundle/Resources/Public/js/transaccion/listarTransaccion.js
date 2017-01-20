@@ -4,13 +4,13 @@ $(document).ready(function() {
     
     function llamar(){
         $.ajax({
-		      url: '../../../php/listarTransaccion.php',
+		      url: Routing.generate('consultaAllTransaccion'),
 		      type: 'post',
 		})
 		.done(function(msg) {
-                    $('#listT').html(msg);
-                    $('#FTable').DataTable();
-		    console.log("successConsultaTabla");
+//                    $('#listT').html(msg);
+//                    $('#FTable').DataTable();
+		    console.log(msg);
 		})
 		.fail(function() {
 		    console.log("errorConsultaTabla");

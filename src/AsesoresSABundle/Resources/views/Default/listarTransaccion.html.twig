@@ -9,7 +9,54 @@
                 <h3 class="text-center">Lista de Transacciones</h3>
                 <center><a class="btn btn-primary" role="button" href="{{ path('pdf') }}">PDF</a></center>
                 <div id="listT" class="table-responsive" style="overflow: auto; text-align: center">
-                        
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>File</td>
+                                <td>Vendedor</td>
+                                <td>Cliente</td>
+                                <td>Aseguradora</td>
+                                <td>Movimiento</td>
+                                <td>Ramo</td>
+                                <td>Poliza</td>
+                                <td>Anexo</td>
+                                <td>Inicio Vigencia</td>
+                                <td>Fin Vigencia</td>
+                                <td>Valor asegurado</td>
+                                <td>Tasa</td>
+                                <td>Prima</td>
+                                <td>%</td>
+                                <td>Comision</td>
+                                <td>Medio de Solicitud</td>
+                                <td>Fecha de Solicitud</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for tr in transacciones %}
+                                <tr>
+                                    <td>{{ tr.idtransaccionanexo }}</td>
+                                    <td>{{ tr.idanexo.idpoliza.idcliente.filecliente }}</td>
+                                    <td>{{ tr.idtransaccion.idusuario.nombreusuario }}</td>
+                                    <td>{{ tr.idanexo.idpoliza.idcliente.nombrecliente }} {{ tr.idanexo.idpoliza.idcliente.apellidocliente }}</td>
+                                    <td>{{ tr.idanexo.idpoliza.idaseguradora.siglaaseguradora }}</td>
+                                    <td>{{ tr.idtransaccion.idmovimiento.siglamovimiento }}</td>
+                                    <td>{{ tr.idanexo.idramo.siglaramo }}</td>
+                                    <td>{{ tr.idanexo.idpoliza.numeropoliza }}</td>
+                                    <td>{{ tr.idanexo.numeroanexo }}</td>
+                                    <td>{#{{ tr.idanexo.iniciovigenciaanexo }}#}</td>
+                                    <td>{#{{ tr.idanexo.finvigenciaanexo }}#}</td>
+                                    <td>{{ tr.idanexo.valortotalaseguradoanexo }}</td>
+                                    <td>{{ tr.idanexo.idpago.tasapago }}</td>
+                                    <td>{{ tr.idanexo.idpago.primapago }}</td>
+                                    <td>{{ tr.idanexo.idpago.porcentajecomisionpago }}</td>
+                                    <td>{{ tr.idanexo.idpago.comisionpago }}</td>
+                                    <td>{{ tr.idtransaccion.mediosolicitud }}</td>
+                                    <td>{{ tr.idtransaccion.fechasolicitud }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

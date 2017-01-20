@@ -23,32 +23,32 @@ class __TwigTemplate_4dbca1b1fa10d5ca53c7788ce06e4bcf3a4ce8e94b3b09a6ba5c8fab7fe
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_19605bed45827df05b3e8c76e4e6d07c554520ed2e2c087068a477d47efc63c2 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_19605bed45827df05b3e8c76e4e6d07c554520ed2e2c087068a477d47efc63c2->enter($__internal_19605bed45827df05b3e8c76e4e6d07c554520ed2e2c087068a477d47efc63c2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AsesoresSABundle:Default:listarTransaccion.html.twig"));
+        $__internal_db0adac8c2a3fd85932bf7d6740fbb9d0580e5de5ca3b344776199a74237dcd5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_db0adac8c2a3fd85932bf7d6740fbb9d0580e5de5ca3b344776199a74237dcd5->enter($__internal_db0adac8c2a3fd85932bf7d6740fbb9d0580e5de5ca3b344776199a74237dcd5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AsesoresSABundle:Default:listarTransaccion.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_19605bed45827df05b3e8c76e4e6d07c554520ed2e2c087068a477d47efc63c2->leave($__internal_19605bed45827df05b3e8c76e4e6d07c554520ed2e2c087068a477d47efc63c2_prof);
+        $__internal_db0adac8c2a3fd85932bf7d6740fbb9d0580e5de5ca3b344776199a74237dcd5->leave($__internal_db0adac8c2a3fd85932bf7d6740fbb9d0580e5de5ca3b344776199a74237dcd5_prof);
 
     }
 
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        $__internal_b861eaf2c8ac66eb2761328a17d0b0f8680df4c0fba7c41e62064f8dc85f0d0c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_b861eaf2c8ac66eb2761328a17d0b0f8680df4c0fba7c41e62064f8dc85f0d0c->enter($__internal_b861eaf2c8ac66eb2761328a17d0b0f8680df4c0fba7c41e62064f8dc85f0d0c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_2015bd074c75934a0e8f2dced2876550d117c5f68765e56d6238717dc3bf23ba = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_2015bd074c75934a0e8f2dced2876550d117c5f68765e56d6238717dc3bf23ba->enter($__internal_2015bd074c75934a0e8f2dced2876550d117c5f68765e56d6238717dc3bf23ba_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "Lista de Transacciones";
         
-        $__internal_b861eaf2c8ac66eb2761328a17d0b0f8680df4c0fba7c41e62064f8dc85f0d0c->leave($__internal_b861eaf2c8ac66eb2761328a17d0b0f8680df4c0fba7c41e62064f8dc85f0d0c_prof);
+        $__internal_2015bd074c75934a0e8f2dced2876550d117c5f68765e56d6238717dc3bf23ba->leave($__internal_2015bd074c75934a0e8f2dced2876550d117c5f68765e56d6238717dc3bf23ba_prof);
 
     }
 
     // line 5
     public function block_body($context, array $blocks = array())
     {
-        $__internal_1f334f5efedb50f14613e2e47c8330829d47e73d6ead46d399d5a6849dbe1916 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_1f334f5efedb50f14613e2e47c8330829d47e73d6ead46d399d5a6849dbe1916->enter($__internal_1f334f5efedb50f14613e2e47c8330829d47e73d6ead46d399d5a6849dbe1916_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_49cb10868b449445448da1458579f13bcc49e246bfe3d7ad88f81a16849fd281 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_49cb10868b449445448da1458579f13bcc49e246bfe3d7ad88f81a16849fd281->enter($__internal_49cb10868b449445448da1458579f13bcc49e246bfe3d7ad88f81a16849fd281_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
         echo "    <div class=\"container\">
@@ -60,39 +60,150 @@ class __TwigTemplate_4dbca1b1fa10d5ca53c7788ce06e4bcf3a4ce8e94b3b09a6ba5c8fab7fe
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("pdf");
         echo "\">PDF</a></center>
                 <div id=\"listT\" class=\"table-responsive\" style=\"overflow: auto; text-align: center\">
-                        
+                    <table class=\"table table-condensed\">
+                        <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>File</td>
+                                <td>Vendedor</td>
+                                <td>Cliente</td>
+                                <td>Aseguradora</td>
+                                <td>Movimiento</td>
+                                <td>Ramo</td>
+                                <td>Poliza</td>
+                                <td>Anexo</td>
+                                <td>Inicio Vigencia</td>
+                                <td>Fin Vigencia</td>
+                                <td>Valor asegurado</td>
+                                <td>Tasa</td>
+                                <td>Prima</td>
+                                <td>%</td>
+                                <td>Comision</td>
+                                <td>Medio de Solicitud</td>
+                                <td>Fecha de Solicitud</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ";
+        // line 36
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(($context["transacciones"] ?? $this->getContext($context, "transacciones")));
+        foreach ($context['_seq'] as $context["_key"] => $context["tr"]) {
+            // line 37
+            echo "                                <tr>
+                                    <td>";
+            // line 38
+            echo twig_escape_filter($this->env, $this->getAttribute($context["tr"], "idtransaccionanexo", array()), "html", null, true);
+            echo "</td>
+                                    <td>";
+            // line 39
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute($context["tr"], "idanexo", array()), "idpoliza", array()), "idcliente", array()), "filecliente", array()), "html", null, true);
+            echo "</td>
+                                    <td>";
+            // line 40
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($context["tr"], "idtransaccion", array()), "idusuario", array()), "nombreusuario", array()), "html", null, true);
+            echo "</td>
+                                    <td>";
+            // line 41
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute($context["tr"], "idanexo", array()), "idpoliza", array()), "idcliente", array()), "nombrecliente", array()), "html", null, true);
+            echo " ";
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute($context["tr"], "idanexo", array()), "idpoliza", array()), "idcliente", array()), "apellidocliente", array()), "html", null, true);
+            echo "</td>
+                                    <td>";
+            // line 42
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute($context["tr"], "idanexo", array()), "idpoliza", array()), "idaseguradora", array()), "siglaaseguradora", array()), "html", null, true);
+            echo "</td>
+                                    <td>";
+            // line 43
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($context["tr"], "idtransaccion", array()), "idmovimiento", array()), "siglamovimiento", array()), "html", null, true);
+            echo "</td>
+                                    <td>";
+            // line 44
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($context["tr"], "idanexo", array()), "idramo", array()), "siglaramo", array()), "html", null, true);
+            echo "</td>
+                                    <td>";
+            // line 45
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($context["tr"], "idanexo", array()), "idpoliza", array()), "numeropoliza", array()), "html", null, true);
+            echo "</td>
+                                    <td>";
+            // line 46
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["tr"], "idanexo", array()), "numeroanexo", array()), "html", null, true);
+            echo "</td>
+                                    <td>";
+            // line 47
+            echo "</td>
+                                    <td>";
+            // line 48
+            echo "</td>
+                                    <td>";
+            // line 49
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["tr"], "idanexo", array()), "valortotalaseguradoanexo", array()), "html", null, true);
+            echo "</td>
+                                    <td>";
+            // line 50
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($context["tr"], "idanexo", array()), "idpago", array()), "tasapago", array()), "html", null, true);
+            echo "</td>
+                                    <td>";
+            // line 51
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($context["tr"], "idanexo", array()), "idpago", array()), "primapago", array()), "html", null, true);
+            echo "</td>
+                                    <td>";
+            // line 52
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($context["tr"], "idanexo", array()), "idpago", array()), "porcentajecomisionpago", array()), "html", null, true);
+            echo "</td>
+                                    <td>";
+            // line 53
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($context["tr"], "idanexo", array()), "idpago", array()), "comisionpago", array()), "html", null, true);
+            echo "</td>
+                                    <td>";
+            // line 54
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["tr"], "idtransaccion", array()), "mediosolicitud", array()), "html", null, true);
+            echo "</td>
+                                    <td>";
+            // line 55
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["tr"], "idtransaccion", array()), "fechasolicitud", array()), "html", null, true);
+            echo "</td>
+                                </tr>
+                            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tr'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 58
+        echo "                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 ";
         
-        $__internal_1f334f5efedb50f14613e2e47c8330829d47e73d6ead46d399d5a6849dbe1916->leave($__internal_1f334f5efedb50f14613e2e47c8330829d47e73d6ead46d399d5a6849dbe1916_prof);
+        $__internal_49cb10868b449445448da1458579f13bcc49e246bfe3d7ad88f81a16849fd281->leave($__internal_49cb10868b449445448da1458579f13bcc49e246bfe3d7ad88f81a16849fd281_prof);
 
     }
 
-    // line 18
+    // line 65
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_da989ab8d5d68e6789adab25e335fe96a9406ffe917bce82b37324056c3525ba = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_da989ab8d5d68e6789adab25e335fe96a9406ffe917bce82b37324056c3525ba->enter($__internal_da989ab8d5d68e6789adab25e335fe96a9406ffe917bce82b37324056c3525ba_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_4ceb6e8ccd1475d924afeaafec79bfceec2c8712caf4a6b1d7fa3222cffab913 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_4ceb6e8ccd1475d924afeaafec79bfceec2c8712caf4a6b1d7fa3222cffab913->enter($__internal_4ceb6e8ccd1475d924afeaafec79bfceec2c8712caf4a6b1d7fa3222cffab913_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 19
+        // line 66
         echo "    ";
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
 
     <script type=\"text/javascript\" src=\"";
-        // line 21
+        // line 68
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("bundles/asesoressa/js/transaccion/listarTransaccion.js"), "html", null, true);
         echo "\"></script>
     <script type=\"text/javascript\" src=\"";
-        // line 22
+        // line 69
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("bundles/asesoressa/js/dataTables.min.js"), "html", null, true);
         echo "\"></script>
 ";
         
-        $__internal_da989ab8d5d68e6789adab25e335fe96a9406ffe917bce82b37324056c3525ba->leave($__internal_da989ab8d5d68e6789adab25e335fe96a9406ffe917bce82b37324056c3525ba_prof);
+        $__internal_4ceb6e8ccd1475d924afeaafec79bfceec2c8712caf4a6b1d7fa3222cffab913->leave($__internal_4ceb6e8ccd1475d924afeaafec79bfceec2c8712caf4a6b1d7fa3222cffab913_prof);
 
     }
 
@@ -108,7 +219,7 @@ class __TwigTemplate_4dbca1b1fa10d5ca53c7788ce06e4bcf3a4ce8e94b3b09a6ba5c8fab7fe
 
     public function getDebugInfo()
     {
-        return array (  91 => 22,  87 => 21,  81 => 19,  75 => 18,  60 => 10,  54 => 6,  48 => 5,  36 => 3,  11 => 1,);
+        return array (  202 => 69,  198 => 68,  192 => 66,  186 => 65,  173 => 58,  164 => 55,  160 => 54,  156 => 53,  152 => 52,  148 => 51,  144 => 50,  140 => 49,  137 => 48,  134 => 47,  130 => 46,  126 => 45,  122 => 44,  118 => 43,  114 => 42,  108 => 41,  104 => 40,  100 => 39,  96 => 38,  93 => 37,  89 => 36,  60 => 10,  54 => 6,  48 => 5,  36 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -132,7 +243,54 @@ class __TwigTemplate_4dbca1b1fa10d5ca53c7788ce06e4bcf3a4ce8e94b3b09a6ba5c8fab7fe
                 <h3 class=\"text-center\">Lista de Transacciones</h3>
                 <center><a class=\"btn btn-primary\" role=\"button\" href=\"{{ path('pdf') }}\">PDF</a></center>
                 <div id=\"listT\" class=\"table-responsive\" style=\"overflow: auto; text-align: center\">
-                        
+                    <table class=\"table table-condensed\">
+                        <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>File</td>
+                                <td>Vendedor</td>
+                                <td>Cliente</td>
+                                <td>Aseguradora</td>
+                                <td>Movimiento</td>
+                                <td>Ramo</td>
+                                <td>Poliza</td>
+                                <td>Anexo</td>
+                                <td>Inicio Vigencia</td>
+                                <td>Fin Vigencia</td>
+                                <td>Valor asegurado</td>
+                                <td>Tasa</td>
+                                <td>Prima</td>
+                                <td>%</td>
+                                <td>Comision</td>
+                                <td>Medio de Solicitud</td>
+                                <td>Fecha de Solicitud</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for tr in transacciones %}
+                                <tr>
+                                    <td>{{ tr.idtransaccionanexo }}</td>
+                                    <td>{{ tr.idanexo.idpoliza.idcliente.filecliente }}</td>
+                                    <td>{{ tr.idtransaccion.idusuario.nombreusuario }}</td>
+                                    <td>{{ tr.idanexo.idpoliza.idcliente.nombrecliente }} {{ tr.idanexo.idpoliza.idcliente.apellidocliente }}</td>
+                                    <td>{{ tr.idanexo.idpoliza.idaseguradora.siglaaseguradora }}</td>
+                                    <td>{{ tr.idtransaccion.idmovimiento.siglamovimiento }}</td>
+                                    <td>{{ tr.idanexo.idramo.siglaramo }}</td>
+                                    <td>{{ tr.idanexo.idpoliza.numeropoliza }}</td>
+                                    <td>{{ tr.idanexo.numeroanexo }}</td>
+                                    <td>{#{{ tr.idanexo.iniciovigenciaanexo }}#}</td>
+                                    <td>{#{{ tr.idanexo.finvigenciaanexo }}#}</td>
+                                    <td>{{ tr.idanexo.valortotalaseguradoanexo }}</td>
+                                    <td>{{ tr.idanexo.idpago.tasapago }}</td>
+                                    <td>{{ tr.idanexo.idpago.primapago }}</td>
+                                    <td>{{ tr.idanexo.idpago.porcentajecomisionpago }}</td>
+                                    <td>{{ tr.idanexo.idpago.comisionpago }}</td>
+                                    <td>{{ tr.idtransaccion.mediosolicitud }}</td>
+                                    <td>{{ tr.idtransaccion.fechasolicitud }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

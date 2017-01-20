@@ -260,15 +260,6 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // pdf
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'pdf');
-            }
-
-            return array (  '_controller' => 'AsesoresSABundle\\Controller\\PolizaController::pdfAction',  '_route' => 'pdf',);
-        }
-
         if (0 === strpos($pathinfo, '/ramo')) {
             // listarRamo
             if ($pathinfo === '/ramo/listar') {
@@ -290,6 +281,20 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         // verTransaccion
         if ($pathinfo === '/transaccion/ver') {
             return array (  '_controller' => 'AsesoresSABundle\\Controller\\TransaccionController::verTransaccionAction',  '_route' => 'verTransaccion',);
+        }
+
+        // consultaAllTransaccion
+        if ($pathinfo === '/anexo/consultaAllTransaccion') {
+            return array (  '_controller' => 'AsesoresSABundle\\Controller\\TransaccionController::consultaAllTransaccion',  '_route' => 'consultaAllTransaccion',);
+        }
+
+        // pdf
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'pdf');
+            }
+
+            return array (  '_controller' => 'AsesoresSABundle\\Controller\\TransaccionController::pdfAction',  '_route' => 'pdf',);
         }
 
         if (0 === strpos($pathinfo, '/usuario')) {
