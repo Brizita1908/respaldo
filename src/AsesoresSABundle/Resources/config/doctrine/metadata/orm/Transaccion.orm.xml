@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Transaccion" table="transaccion">
+    <indexes>
+      <index name="idMovimiento" columns="idMovimiento"/>
+      <index name="idUsuario" columns="idUsuario"/>
+    </indexes>
+    <id name="idtransaccion" type="integer" column="idTransaccion">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fechaentrega" type="datetime" column="fechaEntrega" nullable="true"/>
+    <field name="mediosolicitud" type="string" column="medioSolicitud" length="10" nullable="true"/>
+    <field name="fechasolicitud" type="datetime" column="fechaSolicitud" nullable="true"/>
+    <field name="cartafirmadaentrega" type="datetime" column="cartaFirmadaEntrega" nullable="true"/>
+    <field name="numerocartasolicitud" type="string" column="numeroCartaSolicitud" length="10" nullable="true"/>
+    <field name="estadotransaccion" type="string" column="estadoTransaccion" length="1" nullable="true"/>
+    <many-to-one field="idmovimiento" target-entity="Movimiento">
+      <join-columns>
+        <join-column name="idMovimiento" referenced-column-name="idMovimiento"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idusuario" target-entity="Usuarios">
+      <join-columns>
+        <join-column name="idUsuario" referenced-column-name="idUsuario"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

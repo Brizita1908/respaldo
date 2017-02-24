@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Ramo" table="ramo">
+    <id name="idramo" type="integer" column="idRamo">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="siglaramo" type="string" column="siglaRamo" length="5" nullable="true"/>
+    <field name="nombreramo" type="string" column="nombreRamo" length="50" nullable="true"/>
+    <field name="tiporamo" type="string" column="tipoRamo" length="1" nullable="true"/>
+    <field name="estadoramo" type="string" column="estadoRamo" length="1" nullable="true"/>
+  </entity>
+</doctrine-mapping>

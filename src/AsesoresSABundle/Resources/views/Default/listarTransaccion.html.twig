@@ -1,0 +1,90 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}Lista de Transacciones{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center">Lista de Transacciones</h3>
+                <div id="div1"></div>
+                {#<center><a class="btn btn-primary" role="button" href="{{ path('pdf') }}">PDF</a></center>#}
+                <center><a id="linkpdf" href="#">
+                    <img width="50px" height="50px" src="{{ asset('bundles/asesoressa/images/print-button.png') }}">
+                </a></center>
+                <div id="listT" class="table-responsive" style="overflow: auto; text-align: center">
+                    
+                    <header style="display:none;">
+                        <div class="row">
+                            
+                       <div class="col-md-10">
+                        <img width="150" height="30" title="" alt="" src="data:image/jpeg;base64,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" />
+                        </div>
+                        <div class="col-md-2">
+                        <h2>Reporte Asesores SA</h2>
+                        </div>
+                        </div>
+                    </header>
+                    <table id="FTable" class="table table-striped table-bordered .table-condensed" width="100%" fostyle=" border-collapse: collapse, border: none;">
+                        <thead class="print" >
+                            <tr>
+                                <th  fostyle="padding: 5px;">ID</th>
+                                <th  fostyle="padding: 5px;">File</th>
+                                <th  fostyle="padding: 5px;">Vendedor</th>
+                                <th  fostyle="padding: 5px;">Cliente</th>
+                                <th  fostyle="padding: 5px;">Aseguradora</th>
+                                <th  fostyle="padding: 5px;">Movimiento</th>
+                                <th  fostyle="padding: 5px;">Ramo</th>
+                                <th  fostyle="padding: 5px;">Poliza</th>
+                                <th  fostyle="padding: 5px;">Anexo</th>
+                                <th  fostyle="padding: 5px;">Inicio Vigencia</th>
+                                <th  fostyle="padding: 5px;">Fin Vigencia</th>
+                                <th  fostyle="padding: 5px;">Valor asegurado</th>
+                                <th  fostyle="padding: 5px;">Tasa</th>
+                                <th  fostyle="padding: 5px;">Prima</th>
+                                <th  fostyle="padding: 5px;">%</th>
+                                <th  fostyle="padding: 5px;">Comision</th>
+                                <th  fostyle="padding: 5px;">Medio de Solicitud</th>
+                                <th  fostyle="padding: 5px;">Fecha de Solicitud</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for tr in transacciones %}
+                                <tr>
+                                    <td  fostyle="padding: 5px;">{{ tr.idtransaccionanexo }}</td>
+                                    <td  fostyle="padding: 5px;">{{ tr.idanexo.idpoliza.idcliente.filecliente }}</td>
+                                    <td  fostyle="padding: 5px;">{{ tr.idtransaccion.idusuario.nombreusuario }}</td>
+                                    <td  fostyle="padding: 5px;">{{ tr.idanexo.idpoliza.idcliente.nombrecliente }} {{ tr.idanexo.idpoliza.idcliente.apellidocliente }}</td>
+                                    <td  fostyle="padding: 5px;">{{ tr.idanexo.idpoliza.idaseguradora.siglaaseguradora }}</td>
+                                    <td  fostyle="padding: 5px;">{{ tr.idtransaccion.idmovimiento.siglamovimiento }}</td>
+                                    <td  fostyle="padding: 5px;">{{ tr.idanexo.idramo.siglaramo }}</td>
+                                    <td  fostyle="padding: 5px;">{{ tr.idanexo.idpoliza.numeropoliza }}</td>
+                                    <td  fostyle="padding: 5px;">{{ tr.idanexo.numeroanexo }}</td>
+                                    <td  fostyle="padding: 5px;">{#{{ tr.idanexo.iniciovigenciaanexo }}#}</td>
+                                    <td  fostyle="padding: 5px;">{#{{ tr.idanexo.finvigenciaanexo }}#}</td>
+                                    <td  fostyle="padding: 5px;">{{ tr.idanexo.valortotalaseguradoanexo }}</td>
+                                    <td  fostyle="padding: 5px;">{{ tr.idanexo.idpago.tasapago }}</td>
+                                    <td  fostyle="padding: 5px;">{{ tr.idanexo.idpago.primapago }}</td>
+                                    <td  fostyle="padding: 5px;">{{ tr.idanexo.idpago.porcentajecomisionpago }}</td>
+                                    <td  fostyle="padding: 5px;">{{ tr.idanexo.idpago.comisionpago }}</td>
+                                    <td  fostyle="padding: 5px;">{{ tr.idtransaccion.mediosolicitud }}</td>
+                                    <td  fostyle="padding: 5px;">{{ tr.idtransaccion.fechasolicitud }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                        <footer style="display:none">
+                            <p class="foot">Página <pagenum/> de <totpages/></p>
+                        </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="{{ asset('bundles/asesoressa/js/transaccion/listarTransaccion.js', absolute=true) }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/asesoressa/js/dataTables.min.js', absolute=true) }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/asesoressa/js/xepOnline.jqPlugin.js') }}"></script>
+{% endblock %}
